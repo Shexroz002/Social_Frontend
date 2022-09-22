@@ -1,0 +1,101 @@
+
+.team-container
+{
+    width:100%;
+    height: auto;
+ 
+}
+.text
+{
+    color:#097e8dfa;
+    font-size: 25px;
+    margin-top: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+ 
+}
+.row
+{
+    width: 60%;
+    margin:auto;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: center;
+}
+@media(max-width: 768px)
+{
+    .row{
+        width: 100%;
+    }
+}
+.profile-card
+{
+    background-color: #ffffff;
+    width: 270px;
+    height: 250px;
+    border-radius: 20px;
+    margin: 20px 10px 10px 10px;
+}
+@media(max-width: 468px)
+{
+    .profile-card
+    {
+        width: 290px;
+        height: 250px;
+    }
+}
+.profile-content
+{
+    padding:15px;
+}
+.profile-imagess{
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+}
+.profile-image
+{
+    text-align: center;
+}
+.desc
+{
+    text-align: center;
+}
+.desc h2
+{
+    color: rgb(12,172,150);
+    font-size: 20px;
+}
+.desc p{
+    font-size: 13px;
+    line-height: 1.3em;
+    margin-top: -10px;
+    color: #000000;
+     
+}
+.btn-div
+{
+    text-align: center;
+}
+
+.buttons
+{
+    text-align: center;
+    background-color: blue;
+    display: inline-block;
+    padding: var(--btn-padding);
+    font-weight: 500;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 300ms ease;
+    font-size: 0.9rem;
+}
+
+.buttons:hover{
+    opacity: 0.8;
+}

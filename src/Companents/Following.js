@@ -25,7 +25,7 @@ export default function Following(){
         <div className="row">
             {isinfo.length ? 
             isinfo.map(item=>(
-                <FollowAndFollowers key={item.id} id={item.my_by.id} username={item.my_by.username} user_image={item.my_by.image[0].photo} />
+                <FollowAndFollowers key={item.id} id={item.my_by.id} username={item.my_by.username} user_image={item.my_by.image[item.my_by.image.length-1].photo} />
             ))
             
             :''}

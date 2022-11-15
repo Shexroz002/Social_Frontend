@@ -1,12 +1,15 @@
 
-.wrappercoment{
+.wrappercommnet{
   background: #fff;
   max-width: 850px;
   width: 100%;
+  margin: auto;
   border-radius: 16px;
   box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
               0 32px 64px -48px rgba(0,0,0,0.5);
 }
+
+/* Login & Signup Form CSS Start */
 
 /* Chat Area CSS Start */
 .chat-area header{
@@ -18,11 +21,13 @@
   color: #333;
   font-size: 18px;
 }
-.chat-area header img{
+.commentimage{
   text-align: center;
   z-index: 55555;
-  height: 450px;
+  width: 80%;
+  height: 200px;
   margin: auto;
+  border-radius: 0;
 }
 .chat-area header .details span{
   font-size: 17px;
@@ -99,10 +104,9 @@
   outline: none;
   border-radius: 5px 0 0 5px;
 }
-.buttoms{
+.typing-area button{
   color: #fff;
-  height: 5px;
-  width: 5px;
+  width: 55px;
   border: none;
   outline: none;
   background: #333;
@@ -181,12 +185,11 @@
   .chat-area form{
     padding: 20px;
   }
-  .chat-area form input{
+  .forminput{
     height: 40px;
     width: calc(100% - 48px);
   }
   .chat-area form button{
-    height: 40px;
-    width: calc(50% - 48px);
+    width: 45px;
   }
 }

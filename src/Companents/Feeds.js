@@ -9,7 +9,7 @@ export default function Feeds(){
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
-            console.log(data)
+            console.log(data,'Feed')
             setPosts(data.data)
         })
         .catch(error=>{
@@ -17,14 +17,16 @@ export default function Feeds(){
         })
 
     },[])
+    
 return(
     <div className="feeds">    
         {isPosts.length ? isPosts.map((item) =>(
             <Feed  
             key={item.id}
             id={item.id}
+            userid={item.post_creator.id}
             username={item.post_creator.username} 
-            user_image={item.post_creator.image[0]} 
+            user_image={item.post_creator} 
             post_image={item.post_image} 
             post_title={item.post_title}
             create_by = {item.create_by}

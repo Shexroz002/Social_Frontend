@@ -1,16 +1,38 @@
-
+import StorySee from './StorySee';
+import MyStory from './MyStory';
 import './style.css'
-import axios from "axios"
-import { useState , useEffect } from "react"
+import axios from "axios";
+import { useState , useEffect } from "react";
+
+
 export default function Story(){
+    const[isshow,setshow] = useState(false);
+    const[isimage,setimage] = useState();
     const [isStory,setStory] = useState([])
     const [isload,setload] = useState(false)
+    const [ismyStory,setmyStory] = useState(false)
+    const [isSeen_user,setSeenUser] = useState([]);
+    const [ismystory,setmystory] = useState();
+    const user_id = localStorage.getItem('id');
+    const [isLoad,setLoad] = useState(false);
+
+    useEffect(()=>{
+        axios.get(`http://127.0.0.1:8000/feeds/api/story/seen/personal/${user_id}`,
+        {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
+        )
+        .then(data=>{
+            setmystory(data.data)
+            setSeenUser(data.data.seen_user)
+            setLoad((prev)=>!prev)
+        })
+    },[user_id])
+
+
     useEffect(()=>{
         axios.get('http://127.0.0.1:8000/feeds/api/story',{
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
-            console.log(data.data[0].story_creator.image[0].photo,'user')
             setStory(data.data)
             setload((prev)=>!prev)
         })
@@ -19,61 +41,53 @@ export default function Story(){
         })
 
     },[])
-    console.log(isStory)
+    
+       
+    
+    
+    function showStory(){
+        setshow(prev=>!prev)
+       
+    }
+    function showMyStory(){
+        setmyStory(prev=>!prev)
+       
+    }
+    function seenStory(id){
+        axios.get(`http://127.0.0.1:8000/feeds/api/story/seen/${id}`,
+        {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
+        )
+        .then(data=>console.log(data.status))
+        .catch(error=>console.log(error))
+       
+    }
+    
     return(
-        <div className="stories">
-            <div className="story">
+        <>
+         <div className="stories">
+         <div className="story" onClick={()=>{showMyStory()}}>
                     <div className="profile-photo">
                         <img src='' alt="no" />
                     </div>
                     <p className="name">Your Story</p>
                 </div> 
-            {!isload ? 
+           
+        
+            {isload ? 
              isStory.map(item=>(
-                <div className="story" style={{backgroundImage:  `url(http://127.0.0.1:8000${item.story_image})`}}>
+
+
+                <div onClick={()=>{showStory();seenStory(item.id);setimage(prev=>prev =item.story_image )}} className="story" style={{backgroundImage:  `url(http://127.0.0.1:8000${item.story_image})`}}>
                     <div className="profile-photo">
-                        <img src='' alt="no_image" />
+                        <img src={item.story_creator.image[item.story_creator.image.length-1].photo} alt="no_image" />
                     </div>
-                    <p className="name">{item.story_creator.username}</p>
+                    <p className="name" style={{fontSize:'10px'}}>{item.story_creator.username}</p>
                 </div> 
              ))
                  : <h1>asd</h1>}
-                {/* <div className="story">
-                    <div className="profile-photo">
-                        <img src={rsa} alt="" />
-                    </div>
-                    <p className="name">Your Story</p>
-                </div> */}
-                {/* <div className="story">
-                    <div className="profile-photo">
-                        <img src={rsa} alt="" />
-                    </div>
-                    <p className="name">Winnie Hale</p>
-                </div>
-                <div className="story">
-                    <div className="profile-photo">
-                        <img src={rsa} alt="" />
-                    </div>
-                    <p className="name">Jane Doe</p>
-                </div>
-                <div className="story">
-                    <div className="profile-photo">
-                        <img src={rsa} alt="" />
-                    </div>
-                    <p className="name">Lilla James</p>
-                </div>
-                <div className="story">
-                    <div className="profile-photo">
-                        <img src={rsa} alt="" />
-                    </div>
-                    <p className="name">Jane Doe</p>
-                </div>
-                <div className="story">
-                    <div className="profile-photo">
-                        <img src={rsa} alt="" />
-                    </div>
-                    <p className="name">Jane Doe</p>
-                </div> */}
-            </div>
+            {isshow ? <StorySee showStorys={showStory} image ={isimage} /> : ''}
+            {ismyStory ? <MyStory showMyStorys={showMyStory} isSeen_user ={isSeen_user}  ismystory={ismystory} isLoad={isLoad}  /> : ''}
+            
+            </div></>
     )
 }

@@ -1,6 +1,7 @@
 import './css/createstory.css'
 import { useState  } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 export default function CreateStory(){
     const [isFile,setFile]  = useState()
 
@@ -46,6 +47,7 @@ export default function CreateStory(){
     }
     return(
         <div className="newcontainer">
+            <Link to={`/feed/`} className="back-icon" ><i className="fas fa-arrow-left"></i></Link>
 		<h3 style={{textAlign:'center'}}>Create Story</h3>
 		<input onChange={FileGet} type="file" id="file" accept="image/*" hidden />
 		<div className="img-area" data-img="">

@@ -2,11 +2,27 @@ import '../Companents/css/profile.css'
 import {Link} from 'react-router-dom'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useEffect,useState } from 'react';
 export default function UsProfile(porps){
-  const {user,post_count} = porps;
+  const[isdata,setdata] = useState([]);
+  const {user,post_count,follow} = porps;
   const value = useParams();
   const user_id = localStorage.getItem('id');
   let user_list = localStorage.getItem('followers').split(',');
+
+// useEffect(()=>{
+//   axios.get(`http://127.0.0.1:8000/users/follow/and/followers/${value.id}`,
+//   { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+// })
+// .then(data=>{
+//   console.log(data,'shexr');
+//   setdata(data)
+// })
+// },[value.id])
+
+console.log(follow,'shex');
+
+
   function following(element) {
     axios.post(`http://127.0.0.1:8000/users/api/followers/${user_id}`,{'sa':8},
     { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -27,9 +43,10 @@ export default function UsProfile(porps){
   }
     return(
         <>
-        <div className="img">
-        <img src="image.jpg" alt="wd" width="100%" />
-      </div>
+        <Link to={`/feed`}  ><i className="fas fa-arrow-left"></i>Exit</Link>
+        <Link to={`/profile/image/${user.id}/`}><div className="img">
+        <img src={user.image[user.image.length-1].photo} alt="wd" width="100%" />
+      </div></Link>
 
       <div className="cnt">
         <div className="name">{user.username}</div>
@@ -41,12 +58,12 @@ export default function UsProfile(porps){
 
         <div className="card-inf">
           <div className="item">
-            <div className="title">3.2M</div>
+            <div className="title">{follow.followers}</div>
             <div className="txt">Folowers</div>
           </div>
 
           <div className="item">
-            <div className="title">56</div>
+            <div className="title">{follow.following}</div>
             <div className="txt">Folowing</div>
           </div>
 
@@ -67,18 +84,20 @@ export default function UsProfile(porps){
           </a>
           <a href="https://github.com/jamshidelmi" className="github">
             <i className="fab fa-github"></i>
-          </a>
-        </div>
-        {user_id === value.id ?
+          </a> {user_id === value.id ?
          <div className="card-button">
-         <Link to={`/createpost`} id='link' > <button className="btn-blue">Create Post</button></Link>
-         <Link to={`/updateprofile`} id='link' > <button className="btn-orange">Update Profile</button></Link>
+         <Link to={`/createpost`} id='link' > <button className='select-image' >Create Post</button></Link>
+         <Link to={`/updateprofile`} id='link' > <button className='select-image' >Update Profile</button></Link>
         </div>
         : 
         <div className="card-button">
-          <button className="btn-blue">Message</button>
-          <button onClick={(e)=>{following(e.target)}} className="btn-orange" style={{background:user_list.some((item)=>(item===user_id.toString())) ? 'red': 'blue'}}>{user_list.some((item)=>(item===user_id.toString())) ? 'Following': 'Follow'}</button>
+          <button className='select-image' style={{background:'green'}}>Message</button><br/>
+          <button className='select-image' onClick={(e)=>{following(e.target)}}  
+          style={{background:user_list.some((item)=>(+item===+user_id.toString())) ? 'red': 'blue'}}>{user_list.some((item)=>(item===user_id.toString())) ? 'Following': 'Follow'}</button>
         </div>}
+        </div>
+        <div><h1>.</h1></div>
+       
         
 
       </div>

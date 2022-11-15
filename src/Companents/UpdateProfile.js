@@ -2,7 +2,8 @@ import './css/createstory.css'
 import { useState ,useEffect  } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2'
-import 'sweetalert2/src/sweetalert2.scss'
+import 'sweetalert2/src/sweetalert2.scss';
+import { Link } from 'react-router-dom';
 export default function UpdateProfile(){
     const [isinfo,setinfo]  = useState([]);
     const [isload,setload]  = useState(false);
@@ -85,8 +86,9 @@ export default function UpdateProfile(){
     }
     return(
         <>
-        {!isload ? <h1>Sa</h1> : 
+        {!isload ?<><Link to={`/feed/`}  ><i className="fas fa-arrow-left"></i></Link> <h1>Sa</h1></> : 
         <div className="newcontainer">
+            <Link to={`/feed/`}  ><i className="fas fa-arrow-left"></i></Link>
 		<h3 style={{textAlign:'center',fontSize:'5vh',position:'relative',top:'-15px'}}>Update Profile</h3>
         <span id='photo_error' style={{fontSize:'2.2vh',textAlign:'center',color:'red'}}></span><br/>
 		<input onChange={FileGet} type="file" id="file" accept="image/*" hidden />
@@ -96,7 +98,7 @@ export default function UpdateProfile(){
 			<p>Image size must be less than <span>2MB</span></p>
 		</div>
         <div className="card-button">
-          <button onClick={ClikFile} className="btn-orange">Select Image</button>
+          <button onClick={ClikFile} className="select-image">Select Image</button>
         </div>
         {/* <button onClick={ClikFile} className="select-image">Select Image</button><br/> */}
         <input defaultValue={isinfo.username || ''}  onChange={(e)=>setUsername(e.target.value)}  type="text" placeholder="Enter username" className="newcontainer__input"  style={{margin:'8px auto',height:'8vh'}}/><br/>

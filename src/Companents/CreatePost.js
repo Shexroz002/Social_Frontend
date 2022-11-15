@@ -4,6 +4,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2'
 import 'sweetalert2/src/sweetalert2.scss'
 // CommonJS
+import { Link } from 'react-router-dom';
 export default function CreatePost(){
     // const Swal = require('sweetalert2');
     const [isFile,setFile]  = useState()
@@ -59,6 +60,7 @@ export default function CreatePost(){
         <>
       
         <div className="newcontainer">
+        <Link to={`/feed/`} className="back-icon" ><i className="fas fa-arrow-left"></i></Link>
 		<h3 style={{textAlign:'center'}}>Create Post</h3>
         <input onChange={(e)=>setDescribe(e.target.value)}  type="text" placeholder="describe this story" className="newcontainer__input" />
 		<input onChange={FileGet} type="file" id="file" accept="image/*" hidden />

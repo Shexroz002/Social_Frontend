@@ -1,9 +1,12 @@
-import './css/styles.css'
-import './scss/styles.scss'
-import login from './img/img-login.svg'
+import './css/styles.css';
+import './scss/styles.scss';
+import logo from './img/login.svg';
 import React, { useState } from "react";
 import axios from 'axios';
+import { useNavigate , } from "react-router-dom";
+
 export default function LoginAndResgtration(){
+    let history = useNavigate ();
     const [isSignUp, setSignUp] = useState(true);
     const [isUsername, setUsername] = useState('');
     const [isPassword, setPassword] = useState('');
@@ -43,7 +46,8 @@ export default function LoginAndResgtration(){
                 }
                 setTimeout(()=>{
                     username.style.display='none';
-                  },4000)
+                    history('feed/')
+                  },2000)
             }
         })
         .catch((error) => {
@@ -143,7 +147,7 @@ export default function LoginAndResgtration(){
         <div className="login">
             <div className="login__content">
                 <div className="login__img">
-                    <img src={login} alt="" />
+                    <img src={logo} alt="no_image" />
                 </div>
 
                 <div className="login__forms">

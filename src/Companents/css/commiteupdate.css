@@ -1,0 +1,107 @@
+
+
+.modalsh {
+    z-index: 44555;
+    display: grid;
+    position: fixed;
+    place-items: center;
+    margin: auto;
+    width: 280px;
+    height: 250px;
+    border-radius: 12px;
+    background: #f8d3d3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    transition: .4s;
+}
+
+.modalsh .modal-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 18px;
+}
+
+.modalsh .modalsh-header .butts {
+    cursor: pointer;
+    font-size: 22px;
+    color: #21202c;
+    background: transparent;
+}
+
+.modalsh .modal-body {
+    text-align: center;
+}
+
+/* .modalsh .modal-body img {
+    width: 40%;
+    margin: 10px 0 30px;
+} */
+
+.modalsh .modal-body .h3style {
+    color: #21202c;
+    font-size: 18px;
+}
+
+.modalsh .modal-body .pstyle {
+    color: #5a586d;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.modalsh .modal-body .buttons {
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 10px;
+    font-size: 22px;
+    background:  #fe425b;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    transition: .4s;
+}
+.modalsh .modal-body .buttona {
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 10px;
+    font-size: 22px;
+    background: #28c513;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    transition: .4s;
+}
+
+.modalsh .modal-body button:hover {
+    background: #e0344b;
+}
+
+.modalsh#hide {
+    opacity: 0;
+    transform: scale(.6);
+    pointer-events: none;
+}
+
+.modalsh#show {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: visible;
+}
+
+#showButton {
+    cursor: pointer;
+    position: absolute;
+    background: #21202c;
+    color: #ffffff;
+    padding: 14px 22px;
+    font-size: 18px;
+    border-radius: 8px;
+    letter-spacing: .5px;
+}
+.forminput{
+    height: 40px;
+    width: calc(100% - 38px);
+    border-radius: 10px;
+    font-size: medium;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }

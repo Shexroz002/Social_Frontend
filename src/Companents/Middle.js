@@ -10,7 +10,6 @@ export default function Middle() {
                 <div className="profile-photo">
                     <img src={rsa} alt="" />
                 </div>
-                
                 <button type="submit"  className="btn btn-primary"  >Post</button>
             </div>
             <Feeds/>

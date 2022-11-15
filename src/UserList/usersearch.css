@@ -1,0 +1,113 @@
+.containersearch {
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+  }
+  
+  .titlesearch {
+    margin-bottom: 20px;
+  }
+  
+  .headersearch {
+    background-color: black;
+    color: #fff;
+    padding: 30px 20px;
+  }
+  
+  .headersearchinput {
+    border: 0;
+    border-radius: 50px;
+    font-size: 14px;
+    padding: 10px 15px;
+    width: 100%;
+    outline: none;
+  }
+  
+  .user-listsearch {
+    background-color: white;
+    list-style-type: none;
+    padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  /* JavaScript */
+  .user-listsearch li {
+    display: flex;
+    padding: 20px;
+  }
+  
+  .user-listimg {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 60px;
+    width: 60px;
+    margin-right: 20px;
+  }
+  
+  .searchh4 {
+    margin: 0 0 10px;
+  }
+  
+  .searchp {
+    font-size: 12px;
+  }
+  
+  .user-listsearch li:not(:last-of-type) {
+    border-bottom: 1px solid #eee;
+  }
+  
+  .user-listsearch li.hide {
+    display: none;
+  }
+  
+  .toggler-container {
+    position: absolute;
+    bottom: 1rem;
+    right: 4rem;
+  }
+  
+  #switch {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+  
+  label {
+    display: block;
+    width: 100px;
+    height: 50px;
+    background-color: var(--primary-label);
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  
+  label::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    border-radius: 70px;
+    background-color: var(--white-ball);
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    transition: 0.5s;
+  }
+  
+  #switch:checked + label:after {
+    background-color: var(--black-ball);
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+  }
+  
+  #switch:checked + label {
+    background-color: var(--secondary-label);
+  }
+  
+  label:active:after {
+    width: 60px;
+  }

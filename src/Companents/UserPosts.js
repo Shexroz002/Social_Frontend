@@ -52,13 +52,13 @@ export default function UserPosts(props){
             <h3>{item.post_title}</h3>
             {user_id === value.id ?
             <div className="card-button">
-            <Link to={`/post/update/${item.id}`} id='link' > <button className="btn-blue"><i className="bi bi-trash3-fill"></i> Update </button> </Link>
-          <button onClick={()=>{postdelete(item.id);console.log('sad')}} className="btn-orange"><i className="bi bi-pen-fill"></i> Delete</button>
+            <Link to={`/post/update/${item.id}`} id='link' > <button className='select-image'><i className="bi bi-pen-fill"></i> Update </button> </Link><br/>
+          <button onClick={()=>{postdelete(item.id);console.log('sad')}} className='select-image'><i className="bi bi-trash3-fill"></i> Delete</button>
         </div>
          : 
          <div className="card-button">
-          <button className="btn-blue"><i className="bi bi-trash3-fill"></i> Comment </button> 
-          <button onClick={(e)=>{likeshow(e.target,item.id)}}  className="btn-orange"><i className="bi bi-heart-fill" style={{color:item.like.some((item)=>(item.id.toString()===user_id.toString())) ? 'red':'white'}}></i> <p style={{display:'inline'}} className='like'>{item.like.length}</p> Like</button>
+          <button className='select-image'><i className="bi bi-trash3-fill"></i> Comment </button> <br/>
+          <button onClick={(e)=>{likeshow(e.target,item.id)}}  className='select-image'><i className="bi bi-heart-fill" style={{color:item.like.some((item)=>(item.id.toString()===user_id.toString())) ? 'red':'white'}}></i> <p style={{display:'inline'}} className='like'>{item.like.length}</p> Like</button>
         </div>
          }
         { ishow ? <DeletePost id={isId} showdelete={showdelete} deletepost={deletepost}  /> : '' }

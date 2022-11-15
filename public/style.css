@@ -38,12 +38,12 @@
     border: none;
 }
 
-body{
+/* body{
     font-family: "Poppins", sans-serif;
     color: var(--color-dark);
     background: var(--color-light);
     overflow-x: hidden;
-}
+} */
 
 .container{
     width: 80%;

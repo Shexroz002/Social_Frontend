@@ -288,7 +288,6 @@ main .container .left .profile{
     width: 100%;
     position: relative;
     overflow: hidden;
-    background: url("./images/story-1.jpg") no-repeat center center/cover;
 }
 
 .middle .stories .story::before{
@@ -305,7 +304,7 @@ main .container .left .profile{
     z-index: 2;
 }
 
-/* .middle .stories .story:nth-child(1){
+.middle .stories .story:nth-child(1){
     background: url("./images/story-1.jpg") no-repeat center center/cover;
 }
 
@@ -327,7 +326,7 @@ main .container .left .profile{
 
 .middle .stories .story:nth-child(6){
     background: url("./images/story-6.jpg") no-repeat center center/cover;
-} */
+}
 
 .middle .story .profile-photo{
     width: 2rem;
@@ -335,7 +334,6 @@ main .container .left .profile{
     align-self: start;
     border: 3px solid var(--color-primary);
 }
-
 .middle .create-post{
     width: 100%;
     display: flex;

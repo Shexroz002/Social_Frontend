@@ -14,7 +14,7 @@ export default function Navbar(){
                 <input type="search" placeholder="Search for creators, inspirations, and projects"/>
             </div></Link>
             <div className="create">
-                <label className="btn btn-primary" for="create-post">Create</label>
+            <Link to='/createstory/'><label className="btn btn-primary" for="create-post">Create Story</label></Link>
                 <div className="profile-photo">
                     <img src={rsa} alt=""/>
                 </div>

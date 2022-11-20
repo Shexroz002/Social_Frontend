@@ -18,6 +18,7 @@ import BodyUsers from "./UserList/BodyUsers";
 import Chat from "./Chat/Chat";
 import SearchUser from "./UserList/SearchUser";
 import ImageSearch from "./Companents/ImageSearch";
+import ReadingBook from "./Companents/MyBook/ReadingBook";
 function App() {
   return (
     <>
@@ -41,6 +42,7 @@ function App() {
       <Route path="users/list"  element={<BodyUsers />} />
       <Route path="users/chat/:id"  element={<Chat />} />
       <Route path="users/search"  element={<SearchUser />} />
+      <Route path="books/"  element={<ReadingBook />} />
     </Routes>
 
   </>

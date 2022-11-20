@@ -21,7 +21,7 @@ useEffect(()=>{
     return(
         <>{isload ?  <header>
         <Link to={`/users/list/`} className="back-icon" ><i className="fas fa-arrow-left"></i></Link>
-          <img   src={user.image[user.image.length-1].photo} alt=""/>
+          <img style={{width:'400px',height:'350px'}}  src={user.image[user.image.length-1].photo} alt=""/>
           <div className="details">
             <span>{user.username}</span>
             <p>Online</p>

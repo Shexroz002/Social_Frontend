@@ -235,9 +235,9 @@
   font-size: 18px;
 }
 .chat-area header img{
-  height: 45px;
-  width: 45px;
-  margin: 0 15px;
+  height: 80%;
+  width: 200px;
+  margin: auto;
 }
 .chat-area header .details span{
   font-size: 17px;

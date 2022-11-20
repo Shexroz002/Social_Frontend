@@ -30,7 +30,7 @@ export default function Feed(props){
 
 
     function add_favorite_post(id){
-        axios.get(`http://127.0.0.1:8000/feeds/api/favorite/post/${id}`,
+        axios.get(`http://127.0.0.1:8000/feeds/api/readed/book/${id}`,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
         )
         .then(data=>{

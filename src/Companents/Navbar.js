@@ -1,4 +1,5 @@
-import './style.css'
+import './style.css';
+
 import rsa from "./profile-14.jpg"
 import { Link } from "react-router-dom";
 export default function Navbar(){
@@ -12,6 +13,7 @@ export default function Navbar(){
             <Link to='/users/search/'><div className="search-bar">
                 <i className="uil uil-search"></i>
                 <input type="search" placeholder="Search for creators, inspirations, and projects"/>
+                
             </div></Link>
             <div className="create">
             <Link to='/createstory/'><label className="btn btn-primary" for="create-post">Create Story</label></Link>

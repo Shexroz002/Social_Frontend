@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+section {
+  padding: 3rem 9%;
+}
+
+
+.title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  padding: 1.2rem 0;
+  margin: auto;
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+  color: #222;
+}
+
+.title span {
+  color: #bac34e;
+  padding-left: .7rem;
+}
+
+.title a {
+  margin-left: auto;
+  color: #666;
+  font-size: 1.5rem;
+}
+
+.title a:hover {
+  color: #bac34e;
+}
+
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: .8rem 3rem;
+  background: #bac34e;
+  color: #fff;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #222;
+}
+
+
+.productsbook .box-containerbook {
+    margin: auto;
+  display: -ms-grid;
+  display: flex;
+  -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem;
+}
+
+.productsbook .box-containerbook .boxbook {
+  margin: auto;
+  position: relative;
+  background: #f3f3f3;
+  text-align: center;
+  overflow: hidden;
+  width: 500px;
+}
+
+.productsbook .box-containerbook .boxbook:hover .icons {
+  top: 0;
+}
+
+.productsbook .box-containerbook .boxbook .icons {
+  position: absolute;
+  top: -105%;
+  left: 0;
+  height: 30rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: rgba(243, 243, 243, 0.8);
+  gap: 1rem;
+}
+
+.productsbook .box-containerbook .boxbook .icons a {
+  font-size: 2rem;
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  background: #fff;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  color: #666;
+}
+
+.productsbook .box-containerbook .boxbook .icons a:hover {
+  background: #bac34e;
+  color: #fff;
+}
+
+.productsbook .box-containerbook .boxbook .image {
+  margin: auto;
+  height: 23rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.productsbookimg {
+    margin: auto;
+  max-height: 400px;
+  max-width: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.content {
+  padding: 1rem;
+}
+
+.productsbookh3 {
+  font-size: 2rem;
+  color: #222;
+}
+
+.productsbook .box-containerbook .boxbook .content .price {
+  font-size: 2rem;
+  color: #222;
+  padding: 1rem 0;
+}
+
+.productsbook .box-containerbook .boxbook .content .stars i {
+  font-size: 1.7rem;
+  color: #bac34e;
+}
+
+
+
+
+
+
+@media (max-width: 991px) {
+  section {
+    padding: 3rem 2rem;
+  }
+  .home #next-slide,
+  .home #prev-slide {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    top: 88%;
+  }
+  .home #prev-slide {
+    left: auto;
+    right: 8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  
+}
+
+@media (max-width: 450px) {
+ 
+}
+/*# sourceMappingURL=style.css.map */
+
+.selectedbook{
+  display: flex;
+  justify-content: space-between;
+}
+.select-box {
+  display: flex;
+  width: 200px;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.select-box .options-container {
+  background: #f5f6fa;
+  color: #2f3640;
+  max-height: 0;
+  width: 90%;
+  opacity: 0;
+  transition: all 0.4s;
+  border-radius: 8px;
+  overflow: hidden;
+  font-weight: 500;
+  order: 1;
+}
+
+.selected {
+  background: #f5f6fa;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  color: #2f3640;
+  position: relative;
+  font-weight: 700;
+  order: 0;
+}
+
+.selected::after {
+  content: "";
+  /* background: url("img/arrow-down.svg"); */
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  height: 100%;
+  width: 32px;
+  right: 10px;
+  top: 5px;
+
+  transition: all 0.4s;
+}
+
+.select-box .options-container.active {
+  max-height: 240px;
+  opacity: 1;
+  overflow-y: scroll;
+  font-weight: 500;
+}
+
+.select-box .options-container.active + .selected::after {
+  transform: rotateX(180deg);
+  top: -6px;
+}
+
+.select-box .options-container::-webkit-scrollbar {
+  width: 8px;
+  background: #0d141f;
+  border-radius: 0 8px 8px 0;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+  background: #525861;
+  border-radius: 0 8px 8px 0;
+}
+
+.select-box .option,
+.selected {
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+.select-box .option:hover {
+  background: #414b57;
+  color: #f5f6fa;
+  font-weight: 500;
+}
+
+.select-box label {
+  cursor: pointer;
+}
+
+.select-box .option .radio {
+  display: none;
+}
+@media (max-width:600px){
+  .selectedbook{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+}
+@media (max-width:800px){
+    .box-containerbook {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+}

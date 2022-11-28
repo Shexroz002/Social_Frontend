@@ -19,6 +19,9 @@ import Chat from "./Chat/Chat";
 import SearchUser from "./UserList/SearchUser";
 import ImageSearch from "./Companents/ImageSearch";
 import ReadingBook from "./Companents/MyBook/ReadingBook";
+import PasswordGenarate from "./PasswordGanarate/Password";
+import BookDetail from "./BookCatagory/BookDetail";
+import BookStatistic from "./BookCatagory/BookStatistic";
 function App() {
   return (
     <>
@@ -43,6 +46,8 @@ function App() {
       <Route path="users/chat/:id"  element={<Chat />} />
       <Route path="users/search"  element={<SearchUser />} />
       <Route path="books/"  element={<ReadingBook />} />
+      <Route path="password/"  element={<PasswordGenarate />} />
+      <Route path="statistic/"  element={<BookStatistic />} />
     </Routes>
 
   </>

@@ -31,6 +31,8 @@ return(
             post_title={item.post_title}
             create_by = {item.create_by}
             like = {item.like}
+            comment_count = {item.comment_count}
+            post_name = {item.post_name}
 
             />
         )

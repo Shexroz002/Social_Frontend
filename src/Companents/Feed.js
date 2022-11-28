@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link , } from "react-router-dom";
 export default function Feed(props){
-    const {id,username,userid,user_image,post_image,post_title,create_by,like,status,delete_post,favorite_post} = props;
+    const {id,comment_count,username,post_name,userid,user_image,post_image,post_title,create_by,like,status,delete_post,favorite_post} = props;
     const user_id = localStorage.getItem('id')
     console.log('users',user_id)
     function likeshow(element,id) {
@@ -90,6 +90,7 @@ export default function Feed(props){
                             <div className="ingo">
                                 <h3><Link to={`/profile/${userid}`}>{username}</Link></h3>
                                 <small>{post_title}, {create_by}</small>
+                                <h3 style={{textAlign: 'center',}}>{post_name}</h3>
                             </div>
                         </div>
                         <span className="edit">
@@ -124,7 +125,7 @@ export default function Feed(props){
                        
                         <p>Liked by <b>{like.length ? like[0].username :'Not found'}</b> and <b id={id}>{like.length} other</b></p>
                     </div>
-
+                    <div className="comment text-muted">View all {comment_count} comments</div>
                     {/* <div className="caption">
                         <p><b>Lana Rose</b> Lorem ipsum dolor sit quisquam eius. <span className="harsh-tag">#lifestyle</span></p>
                     </div>

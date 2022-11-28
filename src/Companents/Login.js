@@ -3,7 +3,7 @@ import './scss/styles.scss';
 import logo from './img/login.svg';
 import React, { useState } from "react";
 import axios from 'axios';
-import { useNavigate , } from "react-router-dom";
+import { Link, useNavigate , } from "react-router-dom";
 
 export default function LoginAndResgtration(){
     let history = useNavigate ();
@@ -192,7 +192,7 @@ export default function LoginAndResgtration(){
                             <i className='bx bx-lock-alt login__icon'></i>
                             <input onChange={(e)=> {setPassword(e.target.value);}} type="password" placeholder="Password" className="login__input" />
                         </div>
-
+                        <Link to={'/password/'}><p href="4" className="login__forgot">Password Ganaration</p></Link>
                         <div onClick={RegisterSend} className="login__button">Sign Up</div>
 
                         <div>

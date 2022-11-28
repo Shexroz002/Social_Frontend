@@ -14,7 +14,7 @@ export default function Notification(){
     },[])
     console.log(isNotifications[isNotifications.length-1],'shex')
     return(
-        <div className="notification-popup">
+        <div className="notification-popup" >
                     {/* <div className="request">
                         
                        

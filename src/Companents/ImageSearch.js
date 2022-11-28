@@ -10,7 +10,7 @@ export default function ImageSearch(props){
    <>
    <div class="image" data-title="cute">
          <img src={item.post_image} alt=""/>
-         <p>{item.post_title}</p>
+         <p>{item.post_name}</p>
       </div></>
 ))}
       

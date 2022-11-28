@@ -55,6 +55,7 @@ export default function CreateStory(){
 			<h3>Upload Image</h3>
 			<p>Image size must be less than <span>2MB</span></p>
 		</div>
+        
 		<button onClick={ClikFile} className="select-image">Select Image</button><br/>
 		<button onClick={GetInfo} className="select-image">Create Story</button>
 	</div>

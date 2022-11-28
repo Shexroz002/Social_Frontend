@@ -145,7 +145,15 @@ img{
   font-weight: 600;
   color: var(--first-color-light);
 }
-
+.login__creas{
+  display: block;
+  width: max-content;
+  margin-right: auto;
+  margin-top: .5rem;
+  font-size: var(--small-font-size);
+  font-weight: 600;
+  color: var(--first-color-light);
+}
 .login__button{
   display: block;
   padding: 1rem;

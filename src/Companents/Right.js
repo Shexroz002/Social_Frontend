@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Right(){
     const[isRequest,setRequest] = useState([])
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/users/api/suggest',
+        axios.get('https://mysocial.pythonanywhere.com/users/api/suggest',
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
         )
         .then(data=>{setRequest(data.data);console.log(data.data)})
@@ -15,16 +15,16 @@ export default function Right(){
     },[])
     
     function delete_suggest_friend(post_id,user_id,type,username) {
-        let user_list = localStorage.getItem('followers').split(',');
+        let user_list = localStorage.getItem('following').split(',');
         if (type ==='accept'){
-             axios.post(`http://127.0.0.1:8000/users/api/followers/${user_id}`,
+             axios.post(`https://mysocial.pythonanywhere.com/users/api/followers/${user_id}`,
           {'sa':8},
           { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
           if(data.status === 201){
             user_list.push(user_id)
-            localStorage.setItem('followers',user_list)
+            localStorage.setItem('following',user_list)
             toast.success(`You acceoted ${username} to your friends lists!`, {
                 position: "bottom-right",
                 autoClose: 5000,
@@ -43,7 +43,7 @@ export default function Right(){
         .catch(error=>{
           if(error.response.status === 404){
             user_list.pop(user_id)
-            localStorage.setItem('followers',user_list)
+            localStorage.setItem('following',user_list)
             toast.info(`You ignored request ${username} for friend!`, {
                 position: "bottom-right",
                 autoClose: 5000,

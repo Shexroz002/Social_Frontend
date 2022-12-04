@@ -13,7 +13,7 @@ export default function UserList(){
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         };
-        axios.get('http://127.0.0.1:8000/users/api/user/list',config)
+        axios.get('https://mysocial.pythonanywhere.com/users/api/user/list',config)
         .then(data=>{
             if(data.status === 200){
                 setusers(data.data);

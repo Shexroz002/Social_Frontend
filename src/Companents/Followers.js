@@ -1,4 +1,5 @@
-import axios from 'axios'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import './css/followers.css';
 import FollowAndFollowers from './FollowAndFollowers';
@@ -8,7 +9,7 @@ export default function Followers(){
     const [isinfo,setinfo] = useState([])
     const value = useParams();
     useEffect(()=>{
-        axios.get(`http://127.0.0.1:8000/users/api/followers/${value.id}`,
+        axios.get(`https://mysocial.pythonanywhere.com/users/api/followers/${value.id}`,
         {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{setinfo(data.data)})
@@ -20,7 +21,7 @@ export default function Followers(){
         <>
         <div className="container">
         <div className="team_container">
-            <div className="text">Meet Our Team</div>
+            <div className="text">Followers</div><Link to={`/profile/${localStorage.getItem('id')}`} className="back-icon" ><i className="fas fa-arrow-left"></i>Exit</Link>
         </div>
         <div className="row">
             {isinfo.length ? 

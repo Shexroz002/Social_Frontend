@@ -12,7 +12,7 @@ useEffect(()=>{
   const config = {
     headers: { Authorization: `Bearer ${token}` }
 };
-    axios.get(`http://127.0.0.1:8000/users/api/profile/update/${id}`,config)
+    axios.get(`https://mysocial.pythonanywhere.com/users/api/profile/update/${id}`,config)
     .then(data=>{
         setuser(data.data.user)
         setload(true)
@@ -21,10 +21,11 @@ useEffect(()=>{
     return(
         <>{isload ?  <header>
         <Link to={`/users/list/`} className="back-icon" ><i className="fas fa-arrow-left"></i></Link>
-          <img style={{width:'400px',height:'350px'}}  src={user.image[user.image.length-1].photo} alt=""/>
+          
           <div className="details">
+            <img style={{width:'50px',height:'50px',paddingLeft:'5px',display:'inline-block'}}  src={user.image[user.image.length-1].photo} alt=""/>
             <span>{user.username}</span>
-            <p>Online</p>
+            <p style={{color:'green'}}>Online</p>
           </div>
         </header> : '' }
       

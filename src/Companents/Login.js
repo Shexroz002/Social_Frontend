@@ -18,7 +18,7 @@ export default function LoginAndResgtration(){
         const username = document.querySelector('#username_error');
         const password = document.querySelector('#password_error');
         const non_error = document.querySelector('#non_error');
-        axios.post('http://127.0.0.1:8000/users/auth/',
+        axios.post('https://mysocial.pythonanywhere.com/users/auth/',
         getData,
         {headers:{
             'Content-Type': 'application/json',
@@ -36,21 +36,23 @@ export default function LoginAndResgtration(){
                 localStorage.setItem('token',data.data.token);
                 localStorage.setItem('login',true);
                 localStorage.setItem('id',data.data.id);
-                if(data.data.followers.length ===0){
+                if(data.data.following.length ===0){
                     console.log('no array')
-                    localStorage.setItem('followers',[0]);
+                    localStorage.setItem('following',[0]);
                 }
                 else{
                     console.log('ok array')
-                    localStorage.setItem('followers',data.data.followers);
+                    localStorage.setItem('following',data.data.following);
                 }
                 setTimeout(()=>{
+                    console.log('Keldi')
                     username.style.display='none';
                     history('feed/')
                   },2000)
             }
         })
         .catch((error) => {
+            console.log(error)
             const arr = Object.keys(error.response.data);
             if(arr.some((item) => item ==="username")){
               username.innerHTML = error.response.data.username;
@@ -72,8 +74,7 @@ export default function LoginAndResgtration(){
             }
 
 
-            console.log(error.response.data)
-
+            
 
           }
       
@@ -88,7 +89,7 @@ export default function LoginAndResgtration(){
         const username = document.querySelector('#usernames_error');
         const password = document.querySelector('#passwords_error');
         const non_error = document.querySelector('#non_error');
-        axios.post('http://127.0.0.1:8000/users/api/register',
+        axios.post('https://mysocial.pythonanywhere.com/users/api/register',
         getData,
         {headers:{
             'Content-Type': 'application/json',

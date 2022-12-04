@@ -10,7 +10,7 @@ export default function Feed(props){
     function likeshow(element,id) {
         const like = document.getElementById(`${id}`);
         const like_count = parseInt(like.innerHTML)
-        axios.get(`http://127.0.0.1:8000/feeds/api/post/like/${id}`,
+        axios.get(`https://mysocial.pythonanywhere.com/feeds/api/post/like/${id}`,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       })
       .then(data=>{
@@ -30,7 +30,7 @@ export default function Feed(props){
 
 
     function add_favorite_post(id){
-        axios.get(`http://127.0.0.1:8000/feeds/api/readed/book/${id}`,
+        axios.get(`https://mysocial.pythonanywhere.com/feeds/api/readed/book/${id}`,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
         )
         .then(data=>{
@@ -58,7 +58,7 @@ export default function Feed(props){
         })
     }
     function delete_favorite_post(id){
-        axios.delete(`http://127.0.0.1:8000/feeds/api/favorite/post/${id}`,
+        axios.delete(`https://mysocial.pythonanywhere.com/feeds/api/favorite/post/${id}`,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
         )
         .then(data=>{

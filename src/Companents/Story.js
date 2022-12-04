@@ -17,19 +17,20 @@ export default function Story(){
     const [isLoad,setLoad] = useState(false);
 
     useEffect(()=>{
-        axios.get(`http://127.0.0.1:8000/feeds/api/story/seen/personal/${user_id}`,
+        axios.get(`https://mysocial.pythonanywhere.com/feeds/api/story/seen/personal/${user_id}`,
         {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
         )
         .then(data=>{
             setmystory(data.data)
             setSeenUser(data.data.seen_user)
             setLoad((prev)=>!prev)
+            console.log('personal',data.data)
         })
     },[user_id])
 
 
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/feeds/api/story',{
+        axios.get('https://mysocial.pythonanywhere.com/feeds/api/story',{
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
@@ -54,7 +55,7 @@ export default function Story(){
        
     }
     function seenStory(id){
-        axios.get(`http://127.0.0.1:8000/feeds/api/story/seen/${id}`,
+        axios.get(`https://mysocial.pythonanywhere.com/feeds/api/story/seen/${id}`,
         {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
         )
         .then(data=>console.log(data.status))
@@ -77,7 +78,7 @@ export default function Story(){
              isStory.map(item=>(
 
 
-                <div onClick={()=>{showStory();seenStory(item.id);setimage(prev=>prev =item.story_image )}} className="story" style={{backgroundImage:  `url(http://127.0.0.1:8000${item.story_image})`}}>
+                <div onClick={()=>{showStory();seenStory(item.id);setimage(prev=>prev =item.story_image )}} className="story" style={{backgroundImage:  `url(https://mysocial.pythonanywhere.com/${item.story_image})`}}>
                     <div className="profile-photo">
                         <img src={item.story_creator.image[item.story_creator.image.length-1].photo} alt="no_image" />
                     </div>

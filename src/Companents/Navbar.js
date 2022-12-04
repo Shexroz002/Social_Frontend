@@ -1,8 +1,25 @@
 import './style.css';
-
+import { useEffect,useState } from 'react';
 import rsa from "./profile-14.jpg"
 import { Link } from "react-router-dom";
+import axios from 'axios';
 export default function Navbar(){
+    const [isprofiles,setprofiles] = useState({});
+    const [isload,setload] = useState(false)
+    useEffect(()=>{
+        axios.get(`https://mysocial.pythonanywhere.com/users/api/profile/update/${localStorage.getItem('id')}`,{
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        })
+        .then(data=>{
+            setprofiles(data.data.user)
+            console.log(data.data.user,'Lola')
+            setload((prev)=>!prev)
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+
+    },[])
     return(
         <>
         <nav>
@@ -17,9 +34,10 @@ export default function Navbar(){
             </div></Link>
             <div className="create">
             <Link to='/createstory/'><label className="btn btn-primary" for="create-post">Create Story</label></Link>
-                <div className="profile-photo">
-                    <img src={rsa} alt=""/>
-                </div>
+                {isload ? <Link to={`/profile/${localStorage.getItem('id')}`}> <div className="profile-photo">
+                    <img src={isprofiles.image[isprofiles.image.length-1].photo} alt="sas"/>
+                </div></Link> : ''}
+                
             </div>
         </div>
     </nav>

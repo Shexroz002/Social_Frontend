@@ -155,6 +155,7 @@ a:hover {
   margin:10px auto;
   padding:3rem 2rem;
   display: grid;
+  margin: auto;
 }
 
 .contenerprofile .title{
@@ -163,6 +164,7 @@ a:hover {
   margin-bottom: 3rem;
   text-transform: uppercase;
   text-align: center;
+  margin: auto;
 }
 
 .contenerprofile .products-contenerprofile{

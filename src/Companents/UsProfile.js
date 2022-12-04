@@ -2,29 +2,21 @@ import '../Companents/css/profile.css'
 import {Link} from 'react-router-dom'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { useEffect,useState } from 'react';
+
 export default function UsProfile(porps){
-  const[isdata,setdata] = useState([]);
+
   const {user,post_count,follow} = porps;
   const value = useParams();
   const user_id = localStorage.getItem('id');
-  let user_list = localStorage.getItem('followers').split(',');
+  let user_list = localStorage.getItem('following').split(',');
 
-// useEffect(()=>{
-//   axios.get(`http://127.0.0.1:8000/users/follow/and/followers/${value.id}`,
-//   { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-// })
-// .then(data=>{
-//   console.log(data,'shexr');
-//   setdata(data)
-// })
-// },[value.id])
+
 
 console.log(follow,'shex');
 
 
   function following(element) {
-    axios.post(`http://127.0.0.1:8000/users/api/followers/${user_id}`,{'sa':8},
+    axios.post(`https://mysocial.pythonanywhere.com/users/api/followers/${user_id}`,{'sa':8},
     { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
   })
   .then(data=>{
@@ -57,15 +49,15 @@ console.log(follow,'shex');
         <strong>Samarkand, Uzbekistan</strong>
 
         <div className="card-inf">
-          <div className="item">
+         <Link to={`/followers/${user.id}/`}> <div className="item">
             <div className="title">{follow.followers}</div>
             <div className="txt">Folowers</div>
-          </div>
+          </div></Link>
 
-          <div className="item">
+          <Link to={`/following/${user.id}/`}><div className="item">
             <div className="title">{follow.following}</div>
             <div className="txt">Folowing</div>
-          </div>
+          </div></Link>
 
           <div className="item">
             <div className="title">{post_count}</div>

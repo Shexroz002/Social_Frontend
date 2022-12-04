@@ -59,15 +59,15 @@ export default function Left(props){
             <Link to='/favorite/post'><p onClick={MenuItemsFun} className="menu-item">
                 <span><i className="uil uil-bookmark"></i></span><h3>Bookmarks</h3>
             </p></Link>
-            {/* <p onClick={MenuItemsFun} className="menu-item">
-                <span><i className="uil uil-chart-line"></i></span><h3>Analytics</h3>
-            </p> */}
+            <Link to='/statistic/'><p onClick={MenuItemsFun} className="menu-item">
+                <span><i className="uil uil-chart-line"></i></span><h3>Statistic</h3>
+            </p></Link>
             <p onClick={MenuItemsFun} className="menu-item" id="theme">
                 <span><i className="uil uil-palette"></i></span><h3>Theme</h3>
             </p>
-            {/* <p onClick={MenuItemsFun} className="menu-item">
-                <span><i className="uil uil-settings"></i></span><h3>Settings</h3>
-            </p> */}
+            <Link to='/books/'><p onClick={MenuItemsFun} className="menu-item">
+                <span><i className="uil uil-book"></i></span><h3>My Book</h3>
+            </p></Link>
         </div>
 
         <Link to='/createstory/'><label for="create-post" className="btn btn-primary">Create Post</label></Link>

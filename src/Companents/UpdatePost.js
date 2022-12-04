@@ -13,7 +13,7 @@ export default function UpdatePost(){
     const [isDescribe,setDescribe]  = useState('');
     const [isError,setError]  = useState('')
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/feeds/api/post/${value.id}`,
+        axios.get(`https://mysocial.pythonanywhere.com/feeds/api/post/${value.id}`,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
@@ -38,7 +38,7 @@ export default function UpdatePost(){
                 getData.append('post_image',isFile);
             }
             getData.append('post_title',isDescribe);
-            axios.put(`http://127.0.0.1:8000/feeds/api/post/${value.id}`,
+            axios.put(`https://mysocial.pythonanywhere.com/feeds/api/post/${value.id}`,
             getData,
             { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             })

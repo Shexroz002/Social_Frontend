@@ -12,7 +12,7 @@ export default function Header(){
     const config = {
       headers: { Authorization: `Bearer ${token}` }
   };
-      axios.get(`http://127.0.0.1:8000/users/api/profile/update/${id}`,config)
+      axios.get(`https://mysocial.pythonanywhere.com/users/api/profile/update/${id}`,config)
       .then(data=>{
           setuser(data.data.user);
           setdowlad(true)
@@ -23,7 +23,7 @@ export default function Header(){
         <>{isdowload ? <header>
           <div className="content">
            
-            <img src={user.image[user.image.length-1].photo} alt=""/>
+            <img style={{height: '50px',width: '50px'}}  className='usersimg' src={user.image[user.image.length-1].photo} alt=""/>
             <div className="details">
               <span><Link to='/'>{user.username}</Link></span>
               <p>online</p>

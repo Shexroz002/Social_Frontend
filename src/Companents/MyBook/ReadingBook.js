@@ -11,7 +11,7 @@ export default function ReadingBook(){
     const [isoff,setoff]=useState(false);
 
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/feeds/api/reading/book',{
+        axios.get('https://mysocial.pythonanywhere.com/feeds/api/reading/book',{
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
@@ -25,7 +25,7 @@ export default function ReadingBook(){
 
     },[])
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/feeds/api/read/book',{
+        axios.get('https://mysocial.pythonanywhere.com/feeds/api/read/book',{
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
@@ -38,7 +38,7 @@ export default function ReadingBook(){
     },[])
     function finish_book(post_id){
 
-        axios.post(`http://127.0.0.1:8000/feeds/api/readed/book/${post_id}`,{'id':1},{
+        axios.post(`https://mysocial.pythonanywhere.com/feeds/api/readed/book/${post_id}`,{'id':1},{
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
@@ -68,7 +68,7 @@ export default function ReadingBook(){
     }
     function delete_book(post_id){
 
-        axios.delete(`http://127.0.0.1:8000/feeds/api/readed/book/${post_id}`,{
+        axios.delete(`https://mysocial.pythonanywhere.com/feeds/api/readed/book/${post_id}`,{
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
@@ -96,7 +96,7 @@ export default function ReadingBook(){
     }
     function delete_book_read(post_id){
 
-        axios.delete(`http://127.0.0.1:8000/feeds/api/readed/book/${post_id}`,{
+        axios.delete(`https://mysocial.pythonanywhere.com/feeds/api/readed/book/${post_id}`,{
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
@@ -145,7 +145,7 @@ export default function ReadingBook(){
             {isRead.map((item)=>(
                <div key={item.id} className = "itembook" >
                  <div className = "itembook-img" >
-                        <img className="itembookimg" src = {`http://127.0.0.1:8000${item.post.post_image}`} alt = {item.post.post_title}/>
+                        <img className="itembookimg" src = {`https://mysocial.pythonanywhere.com${item.post.post_image}`} alt = {item.post.post_title}/>
                     </div>
 
                     <div className = "itembook-details">
@@ -162,7 +162,7 @@ export default function ReadingBook(){
             {isReading.map((item)=>(
                <div key={item.id} className = "itembook" >
                  <div className = "itembook-img" >
-                        <img className="itembookimg" src = {`http://127.0.0.1:8000${item.post.post_image}`} alt = {item.post.post_title}/>
+                        <img className="itembookimg" src = {`https://mysocial.pythonanywhere.com${item.post.post_image}`} alt = {item.post.post_name}/>
                     </div>
 
                     <div className = "itembook-details">

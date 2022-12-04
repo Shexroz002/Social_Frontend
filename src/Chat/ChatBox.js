@@ -10,17 +10,18 @@ export default function ChatBox(props){
  
 const {user_id,message_all} =props;
 useEffect(()=>{
-    const token = localStorage.getItem('token')
-    const config = {
-      headers: { Authorization: `Bearer ${token}` }
-  };
-   axios.get(`http://127.0.0.1:8000/users/api/profile/update/${user_id}`,config)
+  
+   axios.get(`https://mysocial.pythonanywhere.com/users/api/profile/update/${user_id}`,{
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+})
       .then(data=>{
           setuser(data.data.user);
           console.log('sad',data.data.user.image);
           setload(true)
       });
-    axios.get(`http://127.0.0.1:8000/chat/api/chat/${user_id}`,config)
+    axios.get(`https://mysocial.pythonanywhere.com/chat/api/chat/${user_id}`,{
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    })
     .then(data=>{
         if(data.status ===200 ){
             console.log(data)

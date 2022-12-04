@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function FavoritePost(){
     const [isPosts,setPosts]=useState([]);
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/feeds/api/favorite/post/all',{
+        axios.get('https://mysocial.pythonanywhere.com/feeds/api/favorite/post/all',{
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{

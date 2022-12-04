@@ -1,7 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
-section {
-  padding: 3rem 9%;
-}
 
 
 .title {
@@ -14,97 +10,42 @@ section {
   font-size: 2.5rem;
   margin-bottom: 3rem;
   padding: 1.2rem 0;
-  margin: auto;
+  margin: 20px;
   border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
   color: #222;
 }
 
-.title span {
-  color: #bac34e;
-  padding-left: .7rem;
-}
 
-.title a {
-  margin-left: auto;
-  color: #666;
-  font-size: 1.5rem;
-}
 
-.title a:hover {
-  color: #bac34e;
-}
 
-.btn {
-  margin-top: 1rem;
-  display: inline-block;
-  padding: .8rem 3rem;
-  background: #bac34e;
-  color: #fff;
-  font-size: 1.7rem;
-  cursor: pointer;
-}
-
-.btn:hover {
+.btnbook:hover {
   background: #222;
 }
 
-
+.productsbook {
+  margin: auto;
+}
 .productsbook .box-containerbook {
-    margin: auto;
+    /* margin: auto; */
   display: -ms-grid;
-  display: flex;
+  display: grid;
   -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   gap: 2rem;
+  margin: auto;
 }
 
 .productsbook .box-containerbook .boxbook {
-  margin: auto;
+  /* margin: auto; */
   position: relative;
-  background: #f3f3f3;
+  /* background: #f3f3f3; */
   text-align: center;
   overflow: hidden;
-  width: 500px;
+  width: 400px;
+  background-color: rgb(255, 255, 255);
 }
 
-.productsbook .box-containerbook .boxbook:hover .icons {
-  top: 0;
-}
 
-.productsbook .box-containerbook .boxbook .icons {
-  position: absolute;
-  top: -105%;
-  left: 0;
-  height: 30rem;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background: rgba(243, 243, 243, 0.8);
-  gap: 1rem;
-}
-
-.productsbook .box-containerbook .boxbook .icons a {
-  font-size: 2rem;
-  height: 5rem;
-  width: 5rem;
-  line-height: 5rem;
-  background: #fff;
-  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  color: #666;
-}
-
-.productsbook .box-containerbook .boxbook .icons a:hover {
-  background: #bac34e;
-  color: #fff;
-}
 
 .productsbook .box-containerbook .boxbook .image {
   margin: auto;
@@ -126,7 +67,7 @@ section {
 }
 
 .productsbookh3 {
-  font-size: 2rem;
+  font-size: 1rem;
   color: #222;
 }
 
@@ -136,10 +77,6 @@ section {
   padding: 1rem 0;
 }
 
-.productsbook .box-containerbook .boxbook .content .stars i {
-  font-size: 1.7rem;
-  color: #bac34e;
-}
 
 
 
@@ -280,4 +217,14 @@ section {
     justify-content: center;
     gap: 30px;
   }
+}
+.typinginput{
+  height: 45px;
+  width: calc(100% - 20px);
+
+  font-size: 16px;
+  padding: 0 13px;
+  border: 1px solid #e6e6e6;
+  outline: none;
+  border-radius: 5px 0 0 5px;
 }

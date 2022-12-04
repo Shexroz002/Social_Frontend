@@ -9,7 +9,7 @@ export default function UserProfile(){
     const [isUserInfo,setUserInfo] = useState([])
     const [isload,setload] = useState(false)
     useEffect(()=>{
-        axios.get(`http://127.0.0.1:8000/users/api/profile/update/${value.id}`,{
+        axios.get(`https://mysocial.pythonanywhere.com/users/api/profile/update/${value.id}`,{
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
@@ -19,10 +19,11 @@ export default function UserProfile(){
         .catch(error=>{
             console.log(error)
         })
-        axios.get(`http://127.0.0.1:8000/users/follow/and/followers/count/${value.id}`,{
+        axios.get(`https://mysocial.pythonanywhere.com/users/follow/and/followers/count/${value.id}`,{
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
+            console.log(data.data)
             setdata(data.data)
             
         })

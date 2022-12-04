@@ -12,7 +12,7 @@ export default function UserPosts(props){
     function likeshow(element,id) {
       const like_count = element.querySelector('.like');
       const like_style = element.querySelector('.bi');
-      axios.get(`http://127.0.0.1:8000/feeds/api/post/like/${id}`,
+      axios.get(`https://mysocial.pythonanywhere.com/feeds/api/post/like/${id}`,
       { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
     .then(data=>{
@@ -49,7 +49,7 @@ export default function UserPosts(props){
         {posts.map(item=>(
     <div key={item.id} id={`${item.id}`} className="product" data-name="p-1">
             <img src={item.post_image} alt="" />
-            <h3>{item.post_title}</h3>
+            <h3>{item.post_name}</h3>
             {user_id === value.id ?
             <div className="card-button">
             <Link to={`/post/update/${item.id}`} id='link' > <button className='select-image'><i className="bi bi-pen-fill"></i> Update </button> </Link><br/>

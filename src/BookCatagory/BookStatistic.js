@@ -1,13 +1,10 @@
 import './statistic.css';
-import sha from './arrival_1.jpg';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useEffect,useState } from 'react';
 export default function BookStatistic(){
 
-function open_select(){
-    const optionsContainer = document.querySelector(".options-container");
-    optionsContainer.classList.toggle("active");
-}
+
 
 
 const [isSelcect ,allSelect] = useState([]);
@@ -23,7 +20,7 @@ function open_sortby(){
     setshow_select2(prev=>!prev)
 }
 useEffect(()=>{
-    axios.get('http://127.0.0.1:8000/feeds/api/book/type',
+    axios.get('https://mysocial.pythonanywhere.com/feeds/api/book/type',
     { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
     .then(data=>{setype(data.data)})
@@ -82,14 +79,14 @@ function shex(type,order){
       }
 
 useEffect(()=>{
-    axios.get('http://127.0.0.1:8000/feeds/api/book/type',
+    axios.get('https://mysocial.pythonanywhere.com/feeds/api/book/type',
     { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
     .then(data=>{allSelect(data.data)})
     .catch(error=>{console.log(error)})
 },[])
 useEffect(()=>{
-    axios.get('http://127.0.0.1:8000/feeds/api/post',{
+    axios.get('https://mysocial.pythonanywhere.com/feeds/api/post',{
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
     .then(data=>{
@@ -122,13 +119,18 @@ function selected_type2(o){
 
     return(
 
-<section class="productsbook">
+<section style={{margin:'auto'}} class="productsbook">
 
-<h1 class="title"> Book  <span>Statistic</span> <a href="/">Exit</a> </h1>
+<h1 class="title"> Book  <span>Statistic</span><Link style={{margin:'auto'}} to="/feed/">Exit</Link>  </h1>
 <div class="selectedbook">
-<div class="input-group mb-3" style={{width: '200px', height: '40px'}}>
-    <input onChange={(e)=>{book_filter(e.target.value)}} type="text" class="form-control" placeholder="enter book name" aria-label="Username" aria-describedby="basic-addon1"/>
-  </div>
+<div className="search-bar" style={{backgroundColor:'#f5f6fa'}}>
+                <i className="uil uil-search"></i>
+                <input onChange={(e)=>{book_filter(e.target.value)}} style={{backgroundColor:'#f5f6fa'}} type="search" placeholder="enter book name"/>
+                
+            </div>
+{/* <div class="input-group mb-3" style={{width: '200px', height: '40px'}}>
+    <input onChange={(e)=>{book_filter(e.target.value)}} type="text" class="typinginput" placeholder="enter book name" aria-label="Username" aria-describedby="basic-addon1"/>
+  </div> */}
 <div></div>
 <div className="select-box">
 			<div className={isshow_select ? "options-container active" :"options-container"}>
@@ -182,14 +184,14 @@ function selected_type2(o){
 {isPost2.length ?
 
 isPost2.map((item)=>(
-    <div class="boxbook">
+    <div class="boxbook" >
      
         <div class="image">
-            <img className='productsbookimg' src={`http://127.0.0.1:8000/${item.post_image}`} alt=""/>
+            <img className='productsbookimg' src={`https://mysocial.pythonanywhere.com/${item.post_image}`} alt=""/>
         </div>
         <div class="content">
-            <h3 className='productsbookh3'>{item.post_name}</h3>
-            <div class="price">$18.99</div>
+            <Link to={`/comments/${item.id}`}><h3 className='productsbookh3'>{item.post_name}</h3></Link>
+            <div class="price"><i style={{color:'red'}} className="fas fa-heart">{item.like.length}</i>     <i style={{color:'black'}} className="fas fa-comment">{item.comment_count}</i></div>
            
         </div>
     </div>

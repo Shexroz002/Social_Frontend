@@ -1,0 +1,265 @@
+# Query: http://127.0.0.1:8000/
+# Flags: CaseSensitive
+# ContextLines: 1
+
+57 results - 32 files
+
+src\BookCatagory\BookDetail.js:
+   66      useEffect(()=>{
+   67:         axios.get('https://mysocial.pythonanywhere.com/feeds/api/book/type',
+   68          { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+   73      useEffect(()=>{
+   74:         axios.get('https://mysocial.pythonanywhere.com/feeds/api/post',{
+   75              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+  137      <div className="img-containerbook">
+  138:       <img src={`https://mysocial.pythonanywhere.com/${item.post_image}`} className='productimg' alt="" />
+  139      </div>
+
+src\BookCatagory\BookStatistic.js:
+   26  useEffect(()=>{
+   27:     axios.get('https://mysocial.pythonanywhere.com/feeds/api/book/type',
+   28      { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+   85  useEffect(()=>{
+   86:     axios.get('https://mysocial.pythonanywhere.com/feeds/api/book/type',
+   87      { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+   92  useEffect(()=>{
+   93:     axios.get('https://mysocial.pythonanywhere.com/feeds/api/post',{
+   94          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+  193          <div class="image">
+  194:             <img className='productsbookimg' src={`https://mysocial.pythonanywhere.com/${item.post_image}`} alt=""/>
+  195          </div>
+
+src\Chat\Chat.js:
+  18        send_message.append('message',message)
+  19:       axios.post(`https://mysocial.pythonanywhere.com/chat/api/chat/${value.id}`,send_message,config)
+  20      .then(data=>{
+
+src\Chat\ChatBox.js:
+  13    
+  14:    axios.get(`https://mysocial.pythonanywhere.com/users/api/profile/update/${user_id}`,{
+  15      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+  21        });
+  22:     axios.get(`https://mysocial.pythonanywhere.com/chat/api/chat/${user_id}`,{
+  23          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+src\Chat\Header.js:
+  14  };
+  15:     axios.get(`https://mysocial.pythonanywhere.com/users/api/profile/update/${id}`,config)
+  16      .then(data=>{
+
+src\Companents\Comments.js:
+  14      useEffect(()=>{
+  15:       axios.get(`https://mysocial.pythonanywhere.com/feeds/api/post/comments/${value.id}`,
+  16          { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+  57        send_message.append('comment',message)
+  58:       axios.post(`https://mysocial.pythonanywhere.com/feeds/api/post/comments/${value.id}`,send_message,config)
+  59      .then(data=>{
+
+src\Companents\CommiteUpdate.js:
+  10  function comment_delete(){
+  11:     axios.delete(`https://mysocial.pythonanywhere.com/feeds/api/post/comments/delete/${iscomment_id}`,
+  12      {
+
+  33          data_send.append("comment",ismessagea)
+  34:         axios.put(`https://mysocial.pythonanywhere.com/feeds/api/post/comments/delete/${iscomment_id}`,
+  35          data_send,
+
+src\Companents\CreatePost.js:
+  17      useEffect(()=>{
+  18:         axios.get('https://mysocial.pythonanywhere.com/feeds/api/book/type',
+  19          { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+  29          getData.append('post_type',istype_select);
+  30:         axios.post('https://mysocial.pythonanywhere.com/feeds/api/post',
+  31          getData,
+
+src\Companents\CreateStory.js:
+  10          getData.append('story_image',isFile);
+  11:         axios.post('https://mysocial.pythonanywhere.com/feeds/api/story',
+  12          getData,
+
+src\Companents\DeletePost.js:
+  8      function deletepost(){
+  9:         axios.delete(`https://mysocial.pythonanywhere.com/feeds/api/post/${id}`,
+  10          { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+src\Companents\FavoritePost.js:
+  7      useEffect(()=>{
+  8:         axios.get('https://mysocial.pythonanywhere.com/feeds/api/favorite/post/all',{
+  9              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+src\Companents\Feed.js:
+  12          const like_count = parseInt(like.innerHTML)
+  13:         axios.get(`https://mysocial.pythonanywhere.com/feeds/api/post/like/${id}`,
+  14          { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+  32      function add_favorite_post(id){
+  33:         axios.get(`https://mysocial.pythonanywhere.com/feeds/api/readed/book/${id}`,
+  34          { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
+
+  60      function delete_favorite_post(id){
+  61:         axios.delete(`https://mysocial.pythonanywhere.com/feeds/api/favorite/post/${id}`,
+  62          { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
+
+src\Companents\Feeds.js:
+  7      useEffect(()=>{
+  8:         axios.get('https://mysocial.pythonanywhere.com/feeds/api/post',{
+  9              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+src\Companents\FollowAndFollowers.js:
+  7        let user_list = localStorage.getItem('following').split(',');
+  8:         axios.post(`https://mysocial.pythonanywhere.com/users/api/followers/${id}`,
+  9          {'sa':8},
+
+src\Companents\Followers.js:
+  11      useEffect(()=>{
+  12:         axios.get(`https://mysocial.pythonanywhere.com/users/api/followers/${value.id}`,
+  13          {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+src\Companents\Following.js:
+  11      useEffect(()=>{
+  12:         axios.get(`https://mysocial.pythonanywhere.com/users/api/following/${value.id}`,
+  13          {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+src\Companents\Login.js:
+  20          const non_error = document.querySelector('#non_error');
+  21:         axios.post('https://mysocial.pythonanywhere.com/users/auth/',
+  22          getData,
+
+  91          const non_error = document.querySelector('#non_error');
+  92:         axios.post('https://mysocial.pythonanywhere.com/users/api/register',
+  93          getData,
+
+src\Companents\Navbar.js:
+   9      useEffect(()=>{
+  10:         axios.get(`https://mysocial.pythonanywhere.com/users/api/profile/update/${localStorage.getItem('id')}`,{
+  11              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+src\Companents\Notification.js:
+  7      useEffect(()=>{
+  8:         axios.get('https://mysocial.pythonanywhere.com/feeds/api/notifications',
+  9          { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
+
+src\Companents\Profile.js:
+   9      useEffect(()=>{
+  10:         axios.get(`https://mysocial.pythonanywhere.com/users/api/profile/update/${localStorage.getItem('id')}`,{
+  11              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+src\Companents\ProfileImage.js:
+  17      useEffect(()=>{
+  18:         axios.get(`https://mysocial.pythonanywhere.com/users/api/user/profile/image/${value.id}`,{
+  19              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+  80          const images = document.querySelectorAll('.active')[1].alt;
+  81:         axios.delete(`https://mysocial.pythonanywhere.com/users/api/user/profile/image/delete/${+images}`,{
+  82              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+src\Companents\Right.js:
+   8      useEffect(()=>{
+   9:         axios.get('https://mysocial.pythonanywhere.com/users/api/suggest',
+  10          { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
+
+  19          if (type ==='accept'){
+  20:              axios.post(`https://mysocial.pythonanywhere.com/users/api/followers/${user_id}`,
+  21            {'sa':8},
+
+src\Companents\Story.js:
+  19      useEffect(()=>{
+  20:         axios.get(`https://mysocial.pythonanywhere.com/feeds/api/story/seen/personal/${user_id}`,
+  21          {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
+
+  32      useEffect(()=>{
+  33:         axios.get('https://mysocial.pythonanywhere.com/feeds/api/story',{
+  34              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+  57      function seenStory(id){
+  58:         axios.get(`https://mysocial.pythonanywhere.com/feeds/api/story/seen/${id}`,
+  59          {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
+
+  80  
+  81:                 <div onClick={()=>{showStory();seenStory(item.id);setimage(prev=>prev =item.story_image )}} className="story" style={{backgroundImage:  `url(https://mysocial.pythonanywhere.com/${item.story_image})`}}>
+  82                      <div className="profile-photo">
+
+src\Companents\UpdatePost.js:
+  15      useEffect(() => {
+  16:         axios.get(`https://mysocial.pythonanywhere.com/feeds/api/post/${value.id}`,
+  17          { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+  40              getData.append('post_title',isDescribe);
+  41:             axios.put(`https://mysocial.pythonanywhere.com/feeds/api/post/${value.id}`,
+  42              getData,
+
+src\Companents\UpdateProfile.js:
+  15      useEffect(() => {
+  16:         axios.get(`https://mysocial.pythonanywhere.com/users/api/profile/update/${localStorage.getItem('id')}`,
+  17          { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+  37          getData.append('first_name',isFirstName);
+  38:         axios.put(`https://mysocial.pythonanywhere.com/users/api/profile/update/${localStorage.getItem('id')}`,
+  39          getData,
+
+src\Companents\UserPosts.js:
+  14        const like_style = element.querySelector('.bi');
+  15:       axios.get(`https://mysocial.pythonanywhere.com/feeds/api/post/like/${id}`,
+  16        { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+src\Companents\UsProfile.js:
+  18    function following(element) {
+  19:     axios.post(`https://mysocial.pythonanywhere.com/users/api/followers/${user_id}`,{'sa':8},
+  20      { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+src\Companents\MyBook\ReadingBook.js:
+  13      useEffect(()=>{
+  14:         axios.get('https://mysocial.pythonanywhere.com/feeds/api/reading/book',{
+  15              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+  27      useEffect(()=>{
+  28:         axios.get('https://mysocial.pythonanywhere.com/feeds/api/read/book',{
+  29              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+  40  
+  41:         axios.post(`https://mysocial.pythonanywhere.com/feeds/api/readed/book/${post_id}`,{'id':1},{
+  42              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+  70  
+  71:         axios.delete(`https://mysocial.pythonanywhere.com/feeds/api/readed/book/${post_id}`,{
+  72              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+  98  
+  99:         axios.delete(`https://mysocial.pythonanywhere.com/feeds/api/readed/book/${post_id}`,{
+  100              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+src\Page\UserProfile.js:
+  11      useEffect(()=>{
+  12:         axios.get(`https://mysocial.pythonanywhere.com/users/api/profile/update/${value.id}`,{
+  13              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+  21          })
+  22:         axios.get(`https://mysocial.pythonanywhere.com/users/follow/and/followers/count/${value.id}`,{
+  23              headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+src\UserList\Header.js:
+  14    };
+  15:       axios.get(`https://mysocial.pythonanywhere.com/users/api/profile/update/${id}`,config)
+  16        .then(data=>{
+
+src\UserList\SearchUser.js:
+  17      };
+  18:     axios.get('https://mysocial.pythonanywhere.com/users/api/user/list',config)
+  19      .then(data=>{
+
+  28  useEffect(()=>{
+  29:   axios.get('https://mysocial.pythonanywhere.com/feeds/api/post',{
+  30        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+
+src\UserList\UserList.js:
+  15          };
+  16:         axios.get('https://mysocial.pythonanywhere.com/users/api/user/list',config)
+  17          .then(data=>{

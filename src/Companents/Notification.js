@@ -5,7 +5,7 @@ import axios from "axios";
 export default function Notification(){
     const [isNotifications, setNotifications] = useState([])
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/feeds/api/notifications',
+        axios.get('https://mysocial.pythonanywhere.com/feeds/api/notifications',
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
         )
         .then(data=>{setNotifications(data.data)})

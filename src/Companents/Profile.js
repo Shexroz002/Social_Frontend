@@ -7,7 +7,7 @@ export default function Profile(){
     const [isprofile,setprofile] = useState({});
     const [isload,setload] = useState(false)
     useEffect(()=>{
-        axios.get(`http://127.0.0.1:8000/users/api/profile/update/${localStorage.getItem('id')}`,{
+        axios.get(`https://mysocial.pythonanywhere.com/users/api/profile/update/${localStorage.getItem('id')}`,{
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{

@@ -64,14 +64,14 @@ export default function BookDetail(){
           }
     
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/feeds/api/book/type',
+        axios.get('https://mysocial.pythonanywhere.com/feeds/api/book/type',
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{allSelect(data.data)})
         .catch(error=>{console.log(error)})
     },[])
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/feeds/api/post',{
+        axios.get('https://mysocial.pythonanywhere.com/feeds/api/post',{
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
@@ -135,7 +135,7 @@ export default function BookDetail(){
 isPost2.map((item)=>(
     <div className="product">
     <div className="img-containerbook">
-      <img src={`http://127.0.0.1:8000/${item.post_image}`} className='productimg' alt="" />
+      <img src={`https://mysocial.pythonanywhere.com/${item.post_image}`} className='productimg' alt="" />
     </div>
     <div className="bottom">
       <a href="productDetails.html">{item.post_type.book_type}</a>

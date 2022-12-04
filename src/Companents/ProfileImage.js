@@ -15,7 +15,7 @@ export default function ProfileImage(){
     
     const[isallimage,setallimage] = useState([]);
     useEffect(()=>{
-        axios.get(`http://127.0.0.1:8000/users/api/user/profile/image/${value.id}`,{
+        axios.get(`https://mysocial.pythonanywhere.com/users/api/user/profile/image/${value.id}`,{
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
@@ -78,7 +78,7 @@ export default function ProfileImage(){
     // }
     function delete_image(){
         const images = document.querySelectorAll('.active')[1].alt;
-        axios.delete(`http://127.0.0.1:8000/users/api/user/profile/image/delete/${+images}`,{
+        axios.delete(`https://mysocial.pythonanywhere.com/users/api/user/profile/image/delete/${+images}`,{
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{

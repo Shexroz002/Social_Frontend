@@ -16,7 +16,7 @@ export default function Chat(){
     if(message !==''){
       const send_message = new FormData()
       send_message.append('message',message)
-      axios.post(`http://127.0.0.1:8000/chat/api/chat/${value.id}`,send_message,config)
+      axios.post(`https://mysocial.pythonanywhere.com/chat/api/chat/${value.id}`,send_message,config)
     .then(data=>{
       if(data.status ===201){
         const date_message= []

@@ -12,7 +12,7 @@ export default function Comments(){
   const value = useParams()
   console.log(value)
     useEffect(()=>{
-      axios.get(`http://127.0.0.1:8000/feeds/api/post/comments/${value.id}`,
+      axios.get(`https://mysocial.pythonanywhere.com/feeds/api/post/comments/${value.id}`,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
@@ -55,7 +55,7 @@ export default function Comments(){
     if(message !==''){
       const send_message = new FormData()
       send_message.append('comment',message)
-      axios.post(`http://127.0.0.1:8000/feeds/api/post/comments/${value.id}`,send_message,config)
+      axios.post(`https://mysocial.pythonanywhere.com/feeds/api/post/comments/${value.id}`,send_message,config)
     .then(data=>{
       if(data.status ===201){
         const date_message= []

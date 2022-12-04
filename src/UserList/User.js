@@ -6,7 +6,7 @@ function User(props){
             <>
         <Link to={`/users/chat/${id}`} id='link' >
           <div className="content">
-          <img src={image[image.length-1].photo} alt=""/>
+          <img style={{height:'50px'}} src={image[image.length-1].photo} alt=""/>
           <div className="details">
               <span>{username}</span>
               <p>Resently</p>

@@ -8,7 +8,7 @@ export default function CommiteUpdate(props){
 const{istype,iscomment_id,comment,showmodal,update_comments,index}=props;
 
 function comment_delete(){
-    axios.delete(`http://127.0.0.1:8000/feeds/api/post/comments/delete/${iscomment_id}`,
+    axios.delete(`https://mysocial.pythonanywhere.com/feeds/api/post/comments/delete/${iscomment_id}`,
     {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     }
@@ -31,7 +31,7 @@ function comment_edit(){
     if(ismessagea){
         const data_send = new FormData();
         data_send.append("comment",ismessagea)
-        axios.put(`http://127.0.0.1:8000/feeds/api/post/comments/delete/${iscomment_id}`,
+        axios.put(`https://mysocial.pythonanywhere.com/feeds/api/post/comments/delete/${iscomment_id}`,
         data_send,
         {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }

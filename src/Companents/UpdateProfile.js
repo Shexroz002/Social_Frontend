@@ -13,7 +13,7 @@ export default function UpdateProfile(){
     const [isUsername,setUsername]  = useState('');
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/users/api/profile/update/${localStorage.getItem('id')}`,
+        axios.get(`https://mysocial.pythonanywhere.com/users/api/profile/update/${localStorage.getItem('id')}`,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
@@ -35,7 +35,7 @@ export default function UpdateProfile(){
         getData.append('last_name',isLastName);
         getData.append('username',isUsername);
         getData.append('first_name',isFirstName);
-        axios.put(`http://127.0.0.1:8000/users/api/profile/update/${localStorage.getItem('id')}`,
+        axios.put(`https://mysocial.pythonanywhere.com/users/api/profile/update/${localStorage.getItem('id')}`,
         getData,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })

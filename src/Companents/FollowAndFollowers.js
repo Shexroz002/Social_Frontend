@@ -1,12 +1,11 @@
 import axios from "axios";
 export default function FollowAndFollowers(props){
     const {username,user_image,id}= props;
-    const user_id = localStorage.getItem('id')
-    let user_list = localStorage.getItem('followers').split(',');
+    let user_list = localStorage.getItem('following').split(',');
     console.log(user_list.some((item)=>(item===id.toString())))
     function followers(element) {
-      let user_list = localStorage.getItem('followers').split(',');
-        axios.post(`http://127.0.0.1:8000/users/api/followers/${id}`,
+      let user_list = localStorage.getItem('following').split(',');
+        axios.post(`https://mysocial.pythonanywhere.com/users/api/followers/${id}`,
         {'sa':8},
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       })
@@ -15,7 +14,7 @@ export default function FollowAndFollowers(props){
           element.innerHTML='Following';
           element.style.background = "red";
           user_list.push(id)
-          localStorage.setItem('followers',user_list)
+          localStorage.setItem('following',user_list)
         }
       })
       .catch(error=>{
@@ -24,7 +23,7 @@ export default function FollowAndFollowers(props){
           element.style.background = "blue";
           console.log(id)
           user_list.pop(id)
-          localStorage.setItem('followers',user_list)
+          localStorage.setItem('following',user_list)
         }
       })
       }
@@ -37,7 +36,7 @@ export default function FollowAndFollowers(props){
                     </div>
                     <div className="desc">
                         <h2>{username}</h2>
-                        {/* <p>Lorem ipsum dolor sit amet adipisicing elit. </p> */}
+          
                     </div>
                     <div className="btn-div">
                         <button onClick={(e)=>{followers(e.target)}} className="buttons" style={

@@ -15,7 +15,7 @@ export default function CreatePost(){
     const [isDescribe,setDescribe]  = useState('');
     // const [isshow,setshow]  = useState(false);
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/feeds/api/book/type',
+        axios.get('https://mysocial.pythonanywhere.com/feeds/api/book/type',
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{setype(data.data)})
@@ -27,7 +27,7 @@ export default function CreatePost(){
         getData.append('post_image',isFile);
         getData.append('post_title',isDescribe);
         getData.append('post_type',istype_select);
-        axios.post('http://127.0.0.1:8000/feeds/api/post',
+        axios.post('https://mysocial.pythonanywhere.com/feeds/api/post',
         getData,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })

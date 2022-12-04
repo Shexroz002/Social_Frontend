@@ -6,7 +6,7 @@ import axios from 'axios';
 export default function DeletePost(props){
     const {showdelete,id} = props;
     function deletepost(){
-        axios.delete(`http://127.0.0.1:8000/feeds/api/post/${id}`,
+        axios.delete(`https://mysocial.pythonanywhere.com/feeds/api/post/${id}`,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
@@ -33,11 +33,10 @@ export default function DeletePost(props){
     return(
         <div  className="popup_box">
       <i className="fas fa-exclamation"></i>
-      <h1>Your account will be deleted Permanently!</h1>
-      <label>Are you sure to proceed?</label>
+      <h1>Your post will be deleted Permanently!</h1>
       <div className="btns">
         <a  onClick={()=>{showdelete()}}  className="btn1">Cancel Process</a>
-        <a   onClick={()=>{deletepost()}} className="btn2">Delete Account</a>
+        <a   onClick={()=>{deletepost()}} className="btn2">Delete Post</a>
       </div>
     </div>
     )

@@ -57,10 +57,12 @@
     width: 80px;
     height: 80px;
     border-radius: 50px;
+    margin: auto;
 }
 .profile-image
 {
     text-align: center;
+    margin: auto;
 }
 .desc
 {

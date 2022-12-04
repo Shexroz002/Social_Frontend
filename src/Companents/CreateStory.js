@@ -8,7 +8,7 @@ export default function CreateStory(){
     function GetInfo(){
         let getData = new FormData();
         getData.append('story_image',isFile);
-        axios.post('http://127.0.0.1:8000/feeds/api/story',
+        axios.post('https://mysocial.pythonanywhere.com/feeds/api/story',
         getData,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })

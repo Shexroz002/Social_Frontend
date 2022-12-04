@@ -5,7 +5,7 @@ import Feed from "./Feed";
 export default function Feeds(){
     const [isPosts,setPosts]=useState([]);
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/feeds/api/post',{
+        axios.get('https://mysocial.pythonanywhere.com/feeds/api/post',{
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         .then(data=>{
